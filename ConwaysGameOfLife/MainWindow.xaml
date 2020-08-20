@@ -1,0 +1,33 @@
+﻿<Window x:Class="ConwaysGameOfLife.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ConwaysGameOfLife"
+        mc:Ignorable="d"
+        Title="Conways Game of Life" Height="450" Width="900" Loaded="Window_Loaded">
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height=".93*"></RowDefinition>
+			<RowDefinition Height=".07*"></RowDefinition>
+		</Grid.RowDefinitions>
+		<UniformGrid Grid.Row="0" Name="grdGame" Margin="0,0,0.2,-180.8" HorizontalAlignment="Stretch"></UniformGrid>
+		<UniformGrid Grid.Row="1" Rows="1" Columns="15" Height="29" VerticalAlignment="Bottom" Background="AliceBlue">
+			<Label Content="XSize"></Label>
+			<Slider x:Name="slrXSize" Minimum="10" Maximum="100" SmallChange="1" IsSnapToTickEnabled="True"/>
+			<Label Name="lblXSize" Content="{Binding ElementName=slrXSize, Path=Value}" Width="30"></Label>
+			<Label Content="YSize"></Label>
+			<Slider Name="slrYSize" Minimum="10" Maximum="100" SmallChange="1" IsSnapToTickEnabled="True"></Slider>
+			<Label Name="lblYSize" Content="{Binding ElementName=slrYSize, Path=Value}" Width="30"></Label>
+			<Button Name="btnSetSize" Content="Set Size" Click="btnSetSize_Click" Width="45"></Button>
+			<Button Name="btnRandom" Content="Randomize" Click="btnRandom_Click"></Button>
+			<Button Name="btnStepForward" Content="Next Iteration" Click="btnStepForward_Click" Width="70"></Button>
+			<Button Name="btnGo" Content="Go" Click="btnGo_Click" Width="35"></Button>
+			<Button Name="btnStop" Content="Stop" Click="btnStop_Click" Width="40"></Button>
+			<Button Name="btnSpeed" Content="Set Speed" HorizontalAlignment="Right" Margin="0,0,0,-0.2" Width="64" Click="btnSpeed_Click"/>
+			<Label Content="Speed"></Label>
+			<Slider Name="slrSPeed" Minimum="1" Maximum="15" SmallChange="1" IsSnapToTickEnabled="True"></Slider>
+			<Label Name="lblSpeed" Content="{Binding ElementName=slrSPeed, Path=Value}"></Label>
+		</UniformGrid>
+    </Grid>
+</Window>
